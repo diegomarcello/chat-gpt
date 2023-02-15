@@ -1,0 +1,66 @@
+To create a BigQuery ML model of soccer prediction, you need to follow the steps below:
+
+First, create a BigQuery dataset and a table to store your data. You can use the following command to create a dataset:
+php
+Copy code
+bq mk <dataset-name>
+Next, upload your data to the table you just created. You can use the following command to upload a CSV file:
+css
+Copy code
+bq load --autodetect --source_format=CSV <dataset-name>.<table-name> <path-to-csv-file>
+Once your data is loaded, you can create a BigQuery ML model using SQL. Here's an example:
+sql
+Copy code
+CREATE MODEL <model-name>
+OPTIONS(model_type='logistic_reg') AS
+SELECT
+  IF(home_goals > away_goals, 1, 0) AS label,
+  home_team,
+  away_team,
+  home_shots,
+  away_shots,
+  home_corners,
+  away_corners
+FROM
+  <dataset-name>.<table-name>;
+This creates a logistic regression model to predict the outcome of a soccer game based on the number of shots and corners for each team.
+
+Once the model is created, you can evaluate its performance using the EVALUATE function. Here's an example:
+sql
+Copy code
+SELECT * FROM ML.EVALUATE(MODEL <model-name>, (
+  SELECT
+    IF(home_goals > away_goals, 1, 0) AS label,
+    home_team,
+    away_team,
+    home_shots,
+    away_shots,
+    home_corners,
+    away_corners
+  FROM
+    <dataset-name>.<table-name>));
+This will return metrics such as accuracy, precision, and recall.
+
+Finally, you can use the PREDICT function to make predictions on new data. Here's an example:
+sql
+Copy code
+SELECT
+  home_team,
+  away_team,
+  home_shots,
+  away_shots,
+  home_corners,
+  away_corners,
+  predicted_label
+FROM
+  ML.PREDICT(MODEL <model-name>, (
+    SELECT
+      home_team,
+      away_team,
+      home_shots,
+      away_shots,
+      home_corners,
+      away_corners
+    FROM
+      <dataset-name>.<new-data-table>));
+This will return the predicted outcome of each game in the new data.

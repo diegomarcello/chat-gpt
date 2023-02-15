@@ -1,0 +1,19 @@
+Siga as convenções de codificação da PEP 8 para manter uma consistência no estilo do código Python. Isso torna o código mais fácil de ler e entender para outras pessoas que possam trabalhar no projeto.
+
+Use nomes de variáveis ​​descritivos e significativos para tornar o código mais legível e fácil de entender. Isso ajuda a evitar confusão e erros no código.
+
+Escreva testes unitários para cada função ou método que você cria. Isso ajuda a garantir que o código funcione como esperado e a detectar problemas com antecedência.
+
+Use o gerenciador de pacotes pip para instalar bibliotecas e dependências do projeto. Isso torna mais fácil manter a compatibilidade e gerenciar as dependências.
+
+Utilize virtual environments para criar ambientes isolados para cada projeto, evitando conflitos entre bibliotecas e dependências em diferentes projetos.
+
+Faça uso de docstrings para documentar funções e métodos no código. Isso ajuda a fornecer informações sobre como usar a função e o que ela faz.
+
+Use o controle de versão para rastrear as alterações no código. Isso permite que você veja o histórico de alterações, reverta alterações e trabalhe em paralelo com outras pessoas.
+
+Evite repetições desnecessárias de código. Sempre que possível, extraia trechos de código duplicados para funções ou métodos e chame-os quando necessário.
+
+Use bibliotecas padrão do Python sempre que possível em vez de criar soluções personalizadas. Isso reduz a complexidade do código e torna mais fácil manter o projeto.
+
+Mantenha a simplicidade do código. Escreva código simples, legível e conciso para facilitar a manutenção, a escalabilidade e a resolução de problemas.
