@@ -1,11 +1,11 @@
 import schedule
 import time
 
-def print_hello():
-    print("Hello, World!")
+from soccer_news_team_uol import generate_news
 
-schedule.every(2).seconds.do(print_hello)
+
+# schedule.every(15).seconds.do(generate_news())
 
 while True:
-    schedule.run_pending()
-    time.sleep(1)
+    generate_news()
+    time.sleep(15)

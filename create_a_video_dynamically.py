@@ -9,7 +9,7 @@ size = (640, 480)  # Frame size
 def make_frame(t):
     # Create a solid color frame
     color = (255, 0, 0)  # Red color
-    frame = ImageClip(size, color=color)
+    frame = ImageClip(size)
     
     # Add a text message to the frame
     text = 'Hello, world!'
